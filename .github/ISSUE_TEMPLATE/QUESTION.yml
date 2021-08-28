@@ -1,0 +1,42 @@
+name: ❓️ Question
+description: Ask a general question about how to use the project
+title: "❓️: "
+labels: ["❓️ talk: question", "🕓️ talk: waiting for response", "🚦️ status: awaiting triage"]
+#assignees:
+#  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > Thanks for your interest in this project!
+  - type: textarea
+    id: description
+    attributes:
+      label: What is your question?
+      description: Please provide a clear and concise description of your question?
+      placeholder: Thank you for your interest!
+      value: "❓❓❓"
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+  - type: checkboxes
+    id: agreements
+    attributes:
+      label: Agreements
+      description: By submitting this issue, you agree that you have provided and performed the following
+      options:
+        - label: I have provided the necessary information about my bug report
+          required: true
+        - label: I have downloaded the latest version of this repo and reproduced my issue with the latest version
+          required: true
+        - label: If I have posted the same issue elsewhere, I have also mentioned it in this issue.
+          required: true
+        - label: I understand that my issue may be closed if I don't fulfill my promises.
+          required: true

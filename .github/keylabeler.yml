@@ -1,0 +1,23 @@
+# Determines if we search the title (optional). Defaults to true.
+matchTitle: true
+
+# Determines if we search the body (optional). Defaults to true.
+matchBody: true
+
+# Determines if label matching is case sensitive (optional). Defaults to true.
+caseSensitive: false
+
+# Explicit keyword mappings to labels. Form of match:label. Required.
+labelMappings:
+  "[bug]": bug
+  "[doc]": documentation
+  "[dupe]": duplicate
+  "[enh]": enhancement
+  "[1]": good first issue
+  "[help]": help wanted
+  "[!]": invalid
+  "[?]": question
+  "[wont]": wontfix
+  "[001]": v0.0.1
+  "[002]": v0.0.2
+  "[003]": v0.0.3

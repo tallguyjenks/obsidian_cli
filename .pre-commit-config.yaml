@@ -1,0 +1,115 @@
+repos:
+  - repo: https://github.com/asottile/seed-isort-config
+    rev: v2.2.0
+    hooks:
+    - id: seed-isort-config
+      log_file: logs/hooks.log
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.9.1
+    hooks:
+    - id: isort
+      log_file: logs/hooks.log
+  - repo: https://github.com/psf/black
+    rev: 21.6b0
+    hooks:
+    - id: black
+      language_version: python3
+      log_file: logs/hooks.log
+      description: "Black: The uncompromising Python code formatter"
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+    - id: flake8
+      log_file: logs/hooks.log
+  - repo: https://github.com/jendrikseipp/vulture
+    rev: 'v2.3'
+    hooks:
+    - id: vulture
+      log_file: logs/hooks.log
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+    - id: trailing-whitespace
+      log_file: logs/hooks.log
+      exclude: img/interrogate_badge.svg
+    - id: end-of-file-fixer
+      log_file: logs/hooks.log
+      exclude: img/interrogate_badge.svg
+    - id: check-docstring-first
+      log_file: logs/hooks.log
+    - id: requirements-txt-fixer
+      log_file: logs/hooks.log
+    - id: check-added-large-files
+      log_file: logs/hooks.log
+    - id: check-json
+      log_file: logs/hooks.log
+      exclude: .vscode/settings.json
+    - id: check-yaml
+      log_file: logs/hooks.log
+    - id: check-toml
+      log_file: logs/hooks.log
+    - id: check-xml
+      log_file: logs/hooks.log
+    - id: debug-statements
+      log_file: logs/hooks.log
+    - id: check-shebang-scripts-are-executable
+      log_file: logs/hooks.log
+    - id: check-merge-conflict
+      log_file: logs/hooks.log
+    - id: check-symlinks
+      log_file: logs/hooks.log
+    - id: destroyed-symlinks
+      log_file: logs/hooks.log
+    - id: debug-statements
+      log_file: logs/hooks.log
+    - id: detect-private-key
+      log_file: logs/hooks.log
+    - id: no-commit-to-branch
+      log_file: logs/hooks.log
+      args: [--branch, prod]
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.9.0
+    hooks:
+    - id: python-use-type-annotations
+      log_file: logs/hooks.log
+    - id: python-check-blanket-noqa
+      log_file: logs/hooks.log
+    - id: python-check-blanket-type-ignore
+      log_file: logs/hooks.log
+    - id: python-check-mock-methods
+      log_file: logs/hooks.log
+    - id: python-no-eval
+      log_file: logs/hooks.log
+    - id: python-no-log-warn
+      log_file: logs/hooks.log
+    - id: python-use-type-annotations
+      log_file: logs/hooks.log
+    - id: rst-backticks
+      log_file: logs/hooks.log
+    - id: rst-directive-colons
+      log_file: logs/hooks.log
+    - id: rst-inline-touching-normal
+      log_file: logs/hooks.log
+    - id: text-unicode-replacement-char
+      log_file: logs/hooks.log
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 2.3.5
+    hooks:
+    - id: editorconfig-checker
+  - repo: https://github.com/econchick/interrogate
+    rev: 1.4.0
+    hooks:
+    - id: interrogate
+  - repo: https://github.com/asottile/blacken-docs
+    rev: v1.10.0
+    hooks:
+    - id: blacken-docs
+      additional_dependencies: [black==20.8b1]
+
+  #   - id: pytest-cov
+  #     log_file: logs/hooks.log
+  #     name: pytest-cov
+  #     entry: poetry run pytest --cov src --cov-report=html
+  #     language: system
+  #     pass_filenames: false
+  #     always_run: true

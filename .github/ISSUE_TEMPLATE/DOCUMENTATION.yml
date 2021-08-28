@@ -1,0 +1,68 @@
+name: 📖️ Documentation
+description: File an issue regarding documentation
+title: "📖️: "
+labels: ["📖 documentation", "🚦️ status: awaiting triage"]
+#assignees:
+#  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > Thanks for taking the time to help us improve our documentation!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: checkboxes
+    id: type-of-change
+    attributes:
+      label: What type of documentation change?
+      description: Let us know what type of change to the repo documentation this issues is regarding
+      options:
+        - label: There is missing documentation where there should be something (pick at least 1)
+          required: false
+        - label: There's a typo
+          required: false
+        - label: Something is incorrect
+          required: false
+        - label: Suggestion on documentation improvement
+          required: false
+        - label: Something should be removed
+          required: false
+        - label: Other?
+          required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe The Change
+      description: Please provide a clear and concise description of what the requested change is?
+      placeholder: Thank you for your contribution!
+      value: "Let us know!"
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+  - type: checkboxes
+    id: agreements
+    attributes:
+      label: Agreements
+      description: By submitting this issue, you agree that you have provided and performed the following
+      options:
+        - label: I have provided the necessary information about my bug report
+          required: true
+        - label: I have downloaded the latest version of this repo and reproduced my issue with the latest version
+          required: true
+        - label: If I have posted the same issue elsewhere, I have also mentioned it in this issue.
+          required: true
+        - label: I understand that my issue may be closed if I don't fulfill my promises.
+          required: true

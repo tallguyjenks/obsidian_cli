@@ -1,0 +1,77 @@
+[tool.poetry]
+name = "pyrm"
+version = "0.1.0"
+description = "Python Personal Relationship Management"
+authors = ["Bryan Jenks <bryanjenks@protonmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+loguru = "^0.5.3"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.14.0"
+pytest = "^6.2.4"
+pytest-cov = "^2.12.1"
+pytest-azurepipelines = "^0.8.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | docs
+  | notes
+)/
+'''
+
+[tool.isort]
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+skip_glob = [ "docs", "notes", "img" ]
+known_third_party = ["loguru", "pytest"]
+
+[tool.vulture]
+exclude = []
+ignore_decorators = ["@app.route", "@require_*"]
+ignore_names = []
+make_whitelist = true
+min_confidence = 80
+paths = ["pyrm/"]
+sort_by_size = true
+verbose = false
+
+[tool.interrogate]
+ignore-init-method = false
+ignore-init-module = false
+ignore-magic = false
+ignore-semiprivate = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-module = false
+ignore-nested-functions = false
+ignore-nested-classes = false
+ignore-setters = false
+fail-under = 95
+exclude = ["setup.py", "docs", "build"]
+ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*"]
+verbose = 2
+quiet = false
+whitelist-regex = []
+color = true
+generate-badge = "img"
+badge-format = "svg"

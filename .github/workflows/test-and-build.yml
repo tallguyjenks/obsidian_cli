@@ -1,0 +1,39 @@
+name: pytester-cov workflow
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      COVERAGE_SINGLE: 60
+      COVERAGE_TOTAL: 60
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Update pip
+      run: python -m pip install --upgrade pip
+
+    - name: Setup Poetry
+      uses: abatilo/actions-poetry@v2.1.2
+      with:
+        poetry-version: 1.1.6
+
+    - name: Install dependencies
+      run: |
+        poetry export --without-hashes --dev --format requirements.txt --output requirements.txt
+        pip3 install -r requirements.txt
+
+    - name: Build coverage file
+      run: |
+        pytest --cache-clear --cov . > pytest-coverage.txt
+    - name: pytest-coverage-commentator
+      uses: coroo/pytest-coverage-commentator@v1.0.2
+      with:
+        pytest-coverage: pytest-coverage.txt

@@ -1,0 +1,12 @@
+{
+  "threshold": 20,
+  "reporters": [
+    "consoleFull"
+  ],
+  "ignore": [
+    "**/__snapshots__/**",
+    "**/.vscode/**",
+    "**/cycle-a-input-data.md"
+  ],
+  "absolute": true
+}

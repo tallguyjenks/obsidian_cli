@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "🤖️ GH Actions "
+      include: "scope"
+    labels: [ "🤖️ dependencies" ]
+    reviewers: [ "tallguyjenks" ]
+
+  # Maintain dependencies for python with poetry
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "🤖️ PROD: "
+      prefix-development: "🤖️ DEV: "
+      include: "scope"
+    labels: [ "🤖️ dependencies" ]
+    reviewers: [ "tallguyjenks" ]

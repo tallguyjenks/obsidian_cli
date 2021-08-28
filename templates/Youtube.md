@@ -11,7 +11,7 @@ status: 🟥️
 - `Title:` [[{file_name}]]
 - `Type:` [[+]]
 - `Tags:` {file_tags}
-- `URL:` <{url[0]}>
+- `URL:` <{url}>
 - `Channel/Host:` [[{host}]]
 - `Reference:`
 - `Publish Date:` {publish_date}

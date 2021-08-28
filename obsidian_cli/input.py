@@ -107,16 +107,18 @@ def get_reviewed_date() -> str:
 
     return f"[[{year}-{month}-{day}]]"
 
+#==============================================================================#
+# MAIN FUNCTION
+#==============================================================================#
+
+
 def main():
     input_type = get_input_type()
-    match input_type:    
+    match input_type[0]:    
         case None | "q":
             print("Exiting...")
             exit()
         case "Video":
-            pass # TODO HERE
-    if input_type[0] == "Video":
-        def youtube(input_type):
             file_name = get_file_name(input_type[1])
             file_tags = get_tags()
             url = get_input_url(input_type[0])
@@ -124,55 +126,20 @@ def main():
             host = get_channel_host()
             publish_date = get_publish_date()
             reviewed_date = get_reviewed_date()
-            template_video = f"""---
-tags: 📥️/🎥️/🟥️
-publish: true
-aliases:
--
-cssclass:
-type: {input_type[0]}
-status: 🟥️
----
-
-- `Title:` [[{file_name}]]
-- `Type:` [[{input_type[1]}]]
-- `Tags:` {file_tags}
-- `URL:` <{url[0]}>
-- `Channel/Host:` [[{host}]]
-- `Reference:`
-- `Publish Date:` {publish_date}
-- `Reviewed Date:` {reviewed_date}
-
----
-
-<center><iframe width="560" height="315" src="https://www.youtube.com/embed/{youtube_shortcode}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
-
----
-
-- <% tp.file.cursor(1) %>
-
-"""
+            with open('../templates/Youtube.md', 'r') as f:
+                text = f.read()
+                text = text.replace('{file_name}', file_name)
+                text = text.replace('{file_tags}', file_tags)
+                text = text.replace('{url}', url[0])
+                text = text.replace('{youtube_shortcode}', youtube_shortcode)
+                text = text.replace('{host}', host)
+                text = text.replace('{publish_date}', publish_date)
+                text = text.replace('{reviewed_date}', reviewed_date)
+                print(text)
             with open(DROP_POINT_PATH + f"/{file_name}.md", "w") as file:
-                file.write(f"{template_video}")
-        youtube(input_type)
+                file.write(f"{text}")
     # TODO add other input functions here
-
-    # TODO add other templates here
-    # ============================================================================= #
-    # TEMPLATES
-    # ============================================================================= #
 
 
 if __name__ == "__main__":
     main()
-
-
-# todo refactor code with the py3.10 match statements
-# refactor
-# quit = False
-# match quit:
-#     case True:
-#         print("Quitting")
-#         exit()
-#     case False:
-#         print("System is on")

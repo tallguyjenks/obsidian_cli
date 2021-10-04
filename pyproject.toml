@@ -12,7 +12,7 @@ loguru = "^0.5.3"
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.14.0"
 pytest = "^6.2.4"
-pytest-cov = "^2.12.1"
+pytest-cov = "^3.0.0"
 pytest-azurepipelines = "^0.8.0"
 
 [build-system]
